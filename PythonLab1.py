@@ -35,7 +35,9 @@ def someVars():
     num3 = float(9.2)
     num4 = float(5.3)
     result = num1 + num2
-    print("the sum of num1 ",num1," and num2 ",num2, " is ", result )
+    result2 = num3+num4
+    print("the sum of num1",num1,"and num2",num2, " is ", result )
+    print("the sum of float",num3,"and num2",num4, " is ", result2 )
     #define a few integer and float numbers, add them together and print result out
 
 #call the function to run it in the main function at the end of the file
@@ -62,11 +64,7 @@ def mylis():
 #####
 
 def printstr(input_str1, input_int1):
-    result = input_int1 + str(input_int1)
-    print(result)
-    input_str2 = "The number is: "
-    input_int2 = 42
-    printstr(input_str2, input_int2)
+    print(input_str1+ str(input_int1))
     #convert int into string and append the int with the string to form a long string
     #(technical googling practice -- google what func to use)
     #print the long str out
@@ -80,6 +78,7 @@ def printstr(input_str1, input_int1):
 
 def funcvars(inputvar1, inputvar2):
     result = inputvar1 + inputvar2
+    print(result)
     return result
     #add the input numbers together
     #returen the result
@@ -102,18 +101,18 @@ def go_over_list1():
     #use for loop to directly print out numbers from 10 to 17
 
 def go_over_list2(mylis):
-    for x in mylis:
-        x = x * 2
+    for i,x in enumerate(mylis):
+        mylis[i] = (x*2)
     print(mylis)
     #use for loop & go over your list
     #multiply 2 to every item in your list, print results out
 
 def go_over_list3(mylis):
     resLis = []
-    for item in mylis:
-        result = item * 2
-        resLis.append(result)
-    return resLis
+    for x in mylis:
+        resLis.append(x*2)
+    print(resLis)
+    
     #create an empty list resLis
     #go over items in the input list, multiply 2 to every item
     #add result one by one to resLis
@@ -160,8 +159,18 @@ if __name__ == '__main__': #a quick way to type this line is: type "main" and th
     print("****Question 3****")
     mylis()
     print("****Question 4****")
+    printstr("how many girlfriends you got?:",6)
     print("****Question 5****")
-    print("****Question 6****")
+    funcvars(3.2, 8)
+    print("****Question 6 list: 0****")
+    dre_list = [342,123,4353,24,24,52,1,4,5,353,24]
+    go_over_list(dre_list)
+    print("****Question 6 list: 1****")
+    go_over_list1()
+    print("****Question 6 list: 2****")
+    go_over_list2(dre_list)
+    print("****Question 6 list: 3****")
+    go_over_list3(dre_list)
     print("****Question 7****")
     #you can start call and run your functions here
 
