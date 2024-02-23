@@ -1,10 +1,10 @@
 import re
-
+#start of function
 def CutOneLineTokens(line):
     output = []
-    line = line.strip()  # Remove leading and trailing whitespace
+    line = line.strip()  #stripping ling
     
-    # Regular expressions for tokens
+    # keys
     keyword_pattern = r'(?P<keyword>if|else|int|float)\b'
     operator_pattern = r'(?P<operator>=|\+|>|\*)'
     separator_pattern = r'(?P<separator>\(|\)|:|;)'
@@ -13,30 +13,31 @@ def CutOneLineTokens(line):
     int_literal_pattern = r'(?P<int_literal>\d+)'
     string_literal_pattern = r'(?P<string_literal>"([^"]*)")'
     
-    # Combine all patterns
+    # combination
     combined_pattern = '|'.join([keyword_pattern, operator_pattern, separator_pattern,
                                  identifier_pattern, float_literal_pattern,
                                  int_literal_pattern, string_literal_pattern])
     
-    # Tokenize the line
+    # tokenize the string
     for match in re.finditer(combined_pattern, line):
         for name, value in match.groupdict().items():
             if value is not None:
                 output.append("<{}, {}>".format(name, value))
-                break  # Break loop after appending the matched token
+                break  # breaking loop
     
     return output
 
 # Test cases
 test_cases = [
     "int A1=5",
-    "float BBB2 =1034.2",
+    "float DSDXD =1034.2",
     "float cresult = A1 +BBB2 * BBB2",
     'if (cresult >10):',
-    'print("TinyPie ")'
+    'print("TinyPie ")',
+    'float int float',
 ]
 
-# Iterate through test cases
+#Runing the test cases
 for i, test_case in enumerate(test_cases, start=1):
     print("Test Case", i)
     print("Test input string:", test_case)
