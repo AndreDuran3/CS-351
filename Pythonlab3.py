@@ -35,6 +35,7 @@ test_cases = [
     'if (cresult >10):',
     'print("TinyPie ")',
     'float int float',
+    'int c = 14',
 ]
 
 #Runing the test cases
